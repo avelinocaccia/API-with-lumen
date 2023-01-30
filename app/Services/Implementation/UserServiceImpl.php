@@ -14,7 +14,7 @@ class UserServiceImpl implements UserServiceInterface{
     }
 
     function getUser(){
-        return $this->model->get();
+        return $this->model->withTrashed()->get(); //withtrashed es para traer los datos que fueron eliminados virtualmente
     }
     
     function getUserById(int $id){
@@ -37,12 +37,20 @@ class UserServiceImpl implements UserServiceInterface{
 
    
     function delUser(int $id){
+        $user = $this->model->find($id);
 
+        if($user != null){
+            $user->delete();
+        }
     }
 
   
     function restoreUser(int $id ){
+        $user = $this->model->withTrashed()->find($id);
 
+        if($user != null){
+            $user->restore();
+        }
     }
 
 

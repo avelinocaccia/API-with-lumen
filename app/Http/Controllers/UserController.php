@@ -34,5 +34,15 @@ class UserController extends Controller
         return $response;
     }
 
+    function deleteUser(int $id){
+        $this->userService->delUser($id);
+        return response('',204);
+    }   
+
+
+    function restoreUser(int $id){
+        $this->userService->restoreUser($id);
+        return response('',204);
+    }
 
 }
