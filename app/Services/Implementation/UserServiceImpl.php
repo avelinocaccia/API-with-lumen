@@ -24,7 +24,8 @@ class UserServiceImpl implements UserServiceInterface{
 
    
     function postUser(array $user){
-
+        //CREA UN NUEVO USUARIO EN EL SISTEMA.
+        $this->model->create($user);
     }
 
    
