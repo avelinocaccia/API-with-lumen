@@ -28,5 +28,11 @@ class UserController extends Controller
     }
 
 
+    function putUser(int $id){
+        $response = response('', 202);
+        $this->userService->putUser($this->request->all(), $id);
+        return $response;
+    }
+
 
 }

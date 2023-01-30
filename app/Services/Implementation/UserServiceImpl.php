@@ -29,7 +29,10 @@ class UserServiceImpl implements UserServiceInterface{
 
    
     function putUser(array $user, int $id){
-
+        $this->model->where('id', $id)
+            ->first()
+            ->fill($user)
+            ->save();
     }
 
    
