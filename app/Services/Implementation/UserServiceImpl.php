@@ -9,13 +9,12 @@ class UserServiceImpl implements UserServiceInterface{
 
     private $model;
 
-    function __construct()
-    {
+    function __construct(){
         $this->model = new User();
     }
 
     function getUser(){
-
+        return $this->model->get();
     }
     
     function getUserById(int $id){

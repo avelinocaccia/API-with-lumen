@@ -19,12 +19,12 @@ class UserController extends Controller
 
     function createUser(){
         $response = response('',201);
-
-
         $this->userService->postUser($this->request->all());
-
-
         return $response;
+    }
+
+    function getListUser() {
+        return response($this->userService->getUser());
     }
 
 
